@@ -1,1 +1,6 @@
 <h1>Oldest director</h1>
+
+<% age_order = Director.where.not(dob:nil).order('dob') %>
+<% oldest = age_order.at(0) %>
+
+<p> The oldest director in our dataset right now is <a href="/directors/<%= oldest.name%>"><%=oldest.name%></a>, born on <%=oldest.dob%>.</p>
